@@ -16,11 +16,10 @@ class ProjectsController extends Controller
 
 	public function store()
 	{
-		// validate
-		// Persist
-		Project::create( request( [ 'title', 'description' ] ) );
+		$attr = request()->validate( [ 'title' => 'required', 'description' => 'required' ] );
 
-		// redirect
-		return redirect('/projects');
+		Project::create( $attr );
+
+		return redirect( '/projects' );
 	}
 }
