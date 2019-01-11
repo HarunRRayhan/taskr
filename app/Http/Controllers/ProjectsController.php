@@ -9,13 +9,17 @@ class ProjectsController extends Controller
 {
 	public function index()
 	{
-		$projects = Project::all();
+		$projects = auth()->user()->projects;
 
 		return view( 'projects.index', compact( 'projects' ) );
 	}
 
 	public function show( Project $project )
 	{
+		if ( auth()->user()->isNot($project->owner) ) {
+			abort( 403 );
+		}
+
 		return view( 'projects.show', compact( 'project' ) );
 	}
 
@@ -25,8 +29,8 @@ class ProjectsController extends Controller
 			'title'       => 'required',
 			'description' => 'required'
 		] );
-		
-		auth()->user()->projects()->create($attr);
+
+		auth()->user()->projects()->create( $attr );
 
 		return redirect( '/projects' );
 	}
