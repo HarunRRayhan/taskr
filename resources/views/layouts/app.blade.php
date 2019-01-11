@@ -24,9 +24,12 @@
     <nav class="bg-white">
         <div class="container mx-auto">
             <div class="flex justify-between items-center py-2">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <h1 style="width: 30px;">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="/images/laravel.svg" alt="Taskr">
+                        {{--Taskr--}}
+                    </a>
+                </h1>
 
                 <div>
 
