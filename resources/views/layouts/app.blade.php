@@ -24,9 +24,9 @@
     <nav class="bg-white">
         <div class="container mx-auto">
             <div class="flex justify-between items-center py-2">
-                <h1 style="width: 30px;">
+                <h1>
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="/images/laravel.svg" alt="Taskr">
+                        <img src="/images/logo.svg" alt="Taskr">
                         {{--Taskr--}}
                     </a>
                 </h1>
